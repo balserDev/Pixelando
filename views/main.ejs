@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles/styles.css">
+  <title>Document</title>
+</head>
+<body>
+
+
+  <input type="color" class="colorpicker">
+
+  <form action="/resolution" method="POST" id="form">
+    <input type="number" name="height" id="height" placeholder="height">
+    <input type="number" name="width" id="value" placeholder="width">  
+    <input type="submit" value="ok">
+  </form>
+  
+  <div class="centerbox">
+    <div class="container" id="capture">
+      <%if(locals.units){%>
+        <% for(i=0; i < units; i++){ %>
+          <div class="block"></div>
+        <%}%>
+      <%}%>
+    </div>
+  </div>
+    
+  <div id="download">
+    Download your art!
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.5/dist/html2canvas.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="scripts/colorPicker.js" ></script>
+</body>
+</html>
