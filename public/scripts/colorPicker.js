@@ -1,4 +1,11 @@
 
+
+$(".gridSelector").change(function(){
+  $(".block").toggleClass("grid");
+})
+
+
+
 function getCanvas(){
   const url = "http://localhost:3000/canvas"
   fetch(url)
@@ -22,8 +29,6 @@ $(".block").click(function(){
   $(this).css("background-color", color)
 })
 
-// $(".container").css("grid-template-rows", repeat(height, "1fr"))
-// $(".container").css("grid-template-columns", repeat(width, "1fr"))
 
 $("#download").click(function(){
   const screenshot = document.querySelector("#capture");

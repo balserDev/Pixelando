@@ -7,6 +7,10 @@ var frameUnits = 1000;
 var height = 1;
 var width = 1;
 
+
+//experimental
+// app.set('view engine', 'ejs');  
+
 app.use(express.static("public"))
 app.use(bodyParser.urlencoded({ extended: true }));
 
