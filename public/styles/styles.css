@@ -7,7 +7,6 @@ body{
   height: 50px;
   border: none;
   margin-left: 50px;
-  margin-top: 10px;
   border-radius: 5px;
 }
 
@@ -27,6 +26,13 @@ body{
   width: auto;
   height: auto;
 }
+
+/* .block{
+  background-color: white;
+  width: 10px;
+  height: 10px;
+} */
+
 .grid{
   border: 0.5px solid;
   border-color: black;
@@ -39,10 +45,12 @@ body{
 }
 .subbuton{
   font-family: 'Pixelify Sans', cursive;
+  border: 2px solid;
   border-radius: 5px;
 }
 .gridSelector{
   font-family: 'Pixelify Sans', cursive;
+  
 }
 .inputbox{
   font-family: 'Pixelify Sans', cursive;
@@ -58,7 +66,19 @@ body{
   margin: 0;
   padding: 0;
   width: 100%;
-  height: 10vh;
+  height: auto;
+}
+
+.buttoner{
+  background-color: white;
+  border: 2px solid;
+  border-radius: 5px;
+  font-family: 'Pixelify Sans', cursive;
+  font-size: 10px;
+  line-height: 20px;
+  text-align: center;
+  height: 20px;
+  width: 50px;
 }
 
 #form{
@@ -79,3 +99,27 @@ body{
   box-shadow: 0px 5px 5px;
 }
 
+#clear-button{
+  border-radius: 5px;
+  font-family: 'Pixelify Sans', cursive;
+  background-color: rgb(255, 255, 255);
+  width: 50px;
+  height: 20px;
+  border: 2px solid;
+  border-color: rgb(250, 5, 5);
+  text-align: center;
+  font-size: 10px;
+  line-height: 20px;
+}
+
+#toolList{
+  list-style-type: none;
+  display: flex;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+  flex-wrap: wrap;
+}
+li{
+  margin-right: 10px;
+}
