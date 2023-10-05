@@ -1,4 +1,7 @@
-
+/**
+ * This function gets a width and height sizes from a server API and generates
+ * the area of the respective canvas
+ */
 function getCanvas(){
   const url = "http://localhost:3000/canvas"
   fetch(url)
@@ -28,6 +31,11 @@ function toolSelectionEfect(tool){
   $(tool).toggleClass("cliked")
 }
 
+/**
+ * This function 
+ * @param {this is an rgb Value to be converted to Hex} rgb 
+ * @returns {Hex code}
+ */
 function RGBToHex(rgb) {
   // Choose correct separator
   let sep = rgb.indexOf(",") > -1 ? "," : " ";
@@ -48,11 +56,9 @@ function RGBToHex(rgb) {
   return "#" + r + g + b;
 }
 
-
 getCanvas();
 
 const colorpicker = $(".colorpicker");
-
 const tools = {
   brush : "brush",
   erraser : "erraser",
@@ -62,6 +68,7 @@ const tools = {
 
 var currentTool = tools.brush;
 
+// Shortcuts implementation
 $("body").keypress(function(event){
   if(event.key === "b"){
     currentTool = tools.brush;
@@ -75,6 +82,7 @@ $("body").keypress(function(event){
   }
 })
 
+// grid turn on and off option
 $(".gridSelector").change(function(){
   $(".block").toggleClass("grid");
 })
@@ -89,12 +97,12 @@ console.log("entering")
     }else if(currentTool == tools.erraser){
       $(this).css("background-color", "white")
     }
-  
   })
 })
+
+
 $(".container").mouseup(function(){
   $(".block").off("mouseenter");
-  console.log("exiting")
 })
   
 $(".container").mouseleave(function(){
@@ -103,7 +111,7 @@ $(".container").mouseleave(function(){
 
 
 $(".block").click(function(){
- 
+
   if(currentTool === tools.brush){
     let color = colorpicker.val();
   $(this).css("background-color", color)
@@ -113,8 +121,7 @@ $(".block").click(function(){
     let currentColor = $(this).css("background-color")
     colorpicker.val(RGBToHex(currentColor)) 
   }
-  
- 
+
 })
 
 
@@ -146,10 +153,11 @@ $("#colorP").click(function(){
   toolSelectionEfect(this);
   currentTool = tools.colorP
 })
-// $("body").mouseup(function(){
-//   $()
-// })
 
+/**
+ * This is the Image download button logic, it takes a screenshoot
+ * of the ".container" object which holds all the canvas
+ */
 $("#download").click(function(){
   const screenshot = document.querySelector("#capture");
   html2canvas(screenshot).then((canvas)=>{
