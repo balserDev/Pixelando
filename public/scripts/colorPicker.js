@@ -1,4 +1,7 @@
-
+/**
+ * This function gets a width and height sizes from a server API and generates
+ * the area of the respective canvas
+ */
 function getCanvas(){
   const url = "http://localhost:3000/canvas"
   fetch(url)
@@ -6,25 +9,155 @@ function getCanvas(){
     return response.json();
   })
   .then(function(data){
-
-    $(".container").css("grid-template-rows", "repeat("+data.height+", 1fr)")
-    $(".container").css("grid-template-columns", "repeat("+data.width+", 1fr)")
+    if(data.width <= 100 && data.width > 0 && data.height <= 100 && data.height > 0){
+      let containerWidth = data.width * 10;
+      let containereHeight = data.height * 10;
+      $(".container").css("grid-template-rows", "repeat("+data.height+", 1fr)")
+      $(".container").css("grid-template-columns", "repeat("+data.width+", 1fr)")
+      $(".container").css("width", containerWidth);
+      $(".container").css("height", containereHeight);
+    }else if(data.width && data.height > 100){
+      alert("Max canvas size is 100")
+    }
+    else(
+      alert("min canvas size is 0")
+    )
+   
   })
+}
+
+function toolSelectionEfect(tool){
+  $(".tool").addClass("cliked")
+  $(tool).toggleClass("cliked")
+}
+
+/**
+ * This function 
+ * @param {this is an rgb Value to be converted to Hex} rgb 
+ * @returns {Hex code}
+ */
+function RGBToHex(rgb) {
+  // Choose correct separator
+  let sep = rgb.indexOf(",") > -1 ? "," : " ";
+  // Turn "rgb(r,g,b)" into [r,g,b]
+  rgb = rgb.substr(4).split(")")[0].split(sep);
+
+  let r = (+rgb[0]).toString(16),
+      g = (+rgb[1]).toString(16),
+      b = (+rgb[2]).toString(16);
+
+  if (r.length == 1)
+    r = "0" + r;
+  if (g.length == 1)
+    g = "0" + g;
+  if (b.length == 1)
+    b = "0" + b;
+
+  return "#" + r + g + b;
 }
 
 getCanvas();
 
-let colorpicker = $(".colorpicker");
+const colorpicker = $(".colorpicker");
+const tools = {
+  brush : "brush",
+  erraser : "erraser",
+  colorP : "colorP"
 
-$(".block").click(function(){
-  console.log("hit");
-  let color = colorpicker.val();
-  $(this).css("background-color", color)
+}
+
+var currentTool = tools.brush;
+
+// Shortcuts implementation
+$("body").keypress(function(event){
+  if(event.key === "b"){
+    currentTool = tools.brush;
+    toolSelectionEfect("#brush");
+  }else if(event.key === "e"){
+    currentTool = tools.erraser;
+    toolSelectionEfect("#erraser");
+  }else if(event.key === "i"){
+    currentTool = tools.colorP;
+    toolSelectionEfect("#colorP");
+  }
 })
 
-// $(".container").css("grid-template-rows", repeat(height, "1fr"))
-// $(".container").css("grid-template-columns", repeat(width, "1fr"))
+// grid turn on and off option
+$(".gridSelector").change(function(){
+  $(".block").toggleClass("grid");
+})
 
+
+$(".container").mousedown(function(){
+console.log("entering")
+  let color = colorpicker.val();
+  $(".block").mouseenter(function(){
+    if(currentTool === tools.brush){
+      $(this).css("background-color", color)
+    }else if(currentTool == tools.erraser){
+      $(this).css("background-color", "white")
+    }
+  })
+})
+
+
+$(".container").mouseup(function(){
+  $(".block").off("mouseenter");
+})
+  
+$(".container").mouseleave(function(){
+  $(".block").off("mouseenter");
+})
+
+
+$(".block").click(function(){
+
+  if(currentTool === tools.brush){
+    let color = colorpicker.val();
+  $(this).css("background-color", color)
+  }else if (currentTool === tools.erraser){
+    $(this).css("background-color", "white")
+  }else if(currentTool == tools.colorP){
+    let currentColor = $(this).css("background-color")
+    colorpicker.val(RGBToHex(currentColor)) 
+  }
+
+})
+
+
+$("#clear-button").click(function(){
+  var result = confirm("you are about to clear the canvas")
+  if(result){
+    $(".block").css("background-color", "white")
+  }else{
+    event.preventDefault();
+  }
+  
+})
+
+
+
+$("#erraser").click(function(){
+  toolSelectionEfect(this);
+  currentTool = tools.erraser
+  
+
+})
+
+$("#brush").click(function(){
+  toolSelectionEfect(this);
+  currentTool = tools.brush;
+})
+
+$("#colorP").click(function(){
+  toolSelectionEfect(this);
+  currentTool = tools.colorP
+})
+
+/**
+ * This is the Image download button logic, it takes a screenshoot
+ * of the ".container" object which holds all the canvas
+ */
 $("#download").click(function(){
   const screenshot = document.querySelector("#capture");
   html2canvas(screenshot).then((canvas)=>{

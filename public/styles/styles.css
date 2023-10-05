@@ -1,29 +1,44 @@
 body{
-  background-color: rgb(57, 57, 57);
+  /* background-color: rgb(57, 57, 57); */
+  background: linear-gradient(to bottom, rgb(57, 57, 57) 90%, rgb(12, 12, 12));
+  /* height: 100vh; */
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 100%;
+
 }
 
 .colorpicker{
-  width: 100px;
-  height: 100px;
+  width: 50px;
+  height: 50px;
   border: none;
+  margin-left: 50px;
+  border-radius: 5px;
 }
 
 .container{
   background-color: white;
-  width: 500px;
-  height: 500px;
+  width: 0px;
+  height: 0px;
   display: grid;
   grid-template-rows: 1fr 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr;
+  margin-top: 20px;
+  box-shadow: 0px 5px 5px;
 }
 
 .block{
   background-color: white;
   width: auto;
   height: auto;
-  border: 0.5px solid;
-  border-color: black;
 }
+
+/* .block{
+  background-color: white;
+  width: 10px;
+  height: 10px;
+} */
+
 .grid{
   border: 0.5px solid;
   border-color: black;
@@ -33,6 +48,54 @@ body{
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.subbuton{
+  font-family: 'Pixelify Sans', cursive;
+  border: 2px solid;
+  border-radius: 5px;
+}
+.gridSelector{
+  font-family: 'Pixelify Sans', cursive;
+  
+}
+.inputbox{
+  font-family: 'Pixelify Sans', cursive;
+}
+
+.test{
+  font-size: 100px;
+  color: white;
+}
+
+.ToolBar{
+  background-color: rgb(141, 132, 132);
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: auto;
+  box-shadow: 0px 5px 5px;
+}
+
+.buttoner{
+  background-color: white;
+  border: 2px solid;
+  border-radius: 5px;
+  font-family: 'Pixelify Sans', cursive;
+  font-size: 10px;
+  line-height: 20px;
+  text-align: center;
+  height: 20px;
+  width: 50px;
+}
+
+.cliked{
+  opacity: 0.5;
+  box-shadow: 0px 5px 5px;
+}
+.cursor{
+  height: 100px;
+  width: 100px;
+  margin-bottom: 100PX;
 }
 
 #form{
@@ -49,5 +112,41 @@ body{
   line-height: 50px;
   margin-left: auto;
   margin-right: auto;
+  font-family: 'Pixelify Sans', cursive;
+  box-shadow: 0px 5px 5px;
+}
 
+#clear-button{
+  border-radius: 5px;
+  font-family: 'Pixelify Sans', cursive;
+  background-color: rgb(255, 255, 255);
+  width: 50px;
+  height: 20px;
+  border: 2px solid;
+  border-color: rgb(250, 5, 5);
+  text-align: center;
+  font-size: 10px;
+  line-height: 20px;
+}
+
+#toolList{
+  list-style-type: none;
+  display: flex;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+#logo{
+  font-family: 'Pixelify Sans', cursive;
+  font-size: 50px;
+  color: white;
+ 
+  margin-left: 100px;
+}
+
+
+li{
+  margin-right: 10px;
 }
