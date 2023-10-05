@@ -8,19 +8,18 @@
   <title>Document</title>
 </head>
 <body>
+  </div>
   <div class="ToolBar">
     <ul id="toolList">
       <li>
-        <input type="color" class="colorpicker">
+        <input type="color" class="colorpicker" value="#ffffff">
       </li>
       <li>
         <form action="/resolution" method="POST" id="form">
           <input type="number" name="height" id="height" placeholder="height" class="inputbox">
           <input type="number" name="width" id="value" placeholder="width" class="inputbox">  
-          <input type="submit" value="ok" class="subbuton">
-          
+          <input type="submit" value="ok" class="subbuton">         
         </form>
-    
       </li>
       <li>
         <input type="checkbox" name="grid" class="gridSelector">
@@ -32,13 +31,23 @@
         </div>
       </li>
       <li>
-        <div class="buttoner">
+        <div class="tool buttoner "id="brush">
           Brush
         </div>
       </li>
       <li>
-        <div class="buttoner">
+        <div class="tool buttoner cliked" id="erraser">
           erraser
+        </div>
+      </li>
+      <li>
+        <div class="tool buttoner cliked" id="colorP">
+          color P
+        </div>
+      </li>
+      <li>
+        <div id="logo">
+          PIXELANDO
         </div>
       </li>
     </ul> 

@@ -1,5 +1,11 @@
 body{
-  background-color: rgb(57, 57, 57);
+  /* background-color: rgb(57, 57, 57); */
+  background: linear-gradient(to bottom, rgb(57, 57, 57) 90%, rgb(12, 12, 12));
+  /* height: 100vh; */
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 100%;
+
 }
 
 .colorpicker{
@@ -12,8 +18,8 @@ body{
 
 .container{
   background-color: white;
-  width: 700px;
-  height: 700px;
+  width: 0px;
+  height: 0px;
   display: grid;
   grid-template-rows: 1fr 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr;
@@ -67,6 +73,7 @@ body{
   padding: 0;
   width: 100%;
   height: auto;
+  box-shadow: 0px 5px 5px;
 }
 
 .buttoner{
@@ -79,6 +86,16 @@ body{
   text-align: center;
   height: 20px;
   width: 50px;
+}
+
+.cliked{
+  opacity: 0.5;
+  box-shadow: 0px 5px 5px;
+}
+.cursor{
+  height: 100px;
+  width: 100px;
+  margin-bottom: 100PX;
 }
 
 #form{
@@ -120,6 +137,16 @@ body{
   align-items: center;
   flex-wrap: wrap;
 }
+
+#logo{
+  font-family: 'Pixelify Sans', cursive;
+  font-size: 50px;
+  color: white;
+ 
+  margin-left: 100px;
+}
+
+
 li{
   margin-right: 10px;
 }
