@@ -1,7 +1,8 @@
 # Pixelando
 Pixel art web app
 ## Take your pixelated ideas to live 
-![image](https://github.com/balserDev/Pixelando/assets/134951579/406e6b25-ed81-4f5c-86c3-ba93c6499c57)
+![image](https://github.com/balserDev/Pixelando/assets/134951579/6748f79b-2e3e-4488-8867-36ac3ab017c8)
+
 
 # How to use?
 ## first generate a canvas and click Ok!
